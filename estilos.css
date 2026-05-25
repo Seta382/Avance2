@@ -403,3 +403,20 @@ body {
     width: 220px;
     text-align: center;
 }
+
+.recomendaciones {
+    margin-top: 20px;
+    background: #eef5f9;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+    .recomendaciones h3 {
+    color: #004999;
+    margin-bottom: 10px;
+}
+
+    .recomendaciones ul {
+    list-style: disc;
+    margin-left: 20px;
+}

@@ -20,7 +20,7 @@
     
     <main class="contenido">
         <h2>Encuesta de Evaluación de Vivienda</h2>
-        <form class="form-encuesta">
+        <form id="form-encuesta" class="form-encuesta">
         <section>
             <h3>Información Básica</h3>
             <label>Nombre: <input type="text" name="nombre"></label><br>
@@ -28,18 +28,65 @@
         </section>
 
         <section>
-            <h3>Condiciones de la Vivienda</h3>
-            <p>¿La estructura de su vivienda es...?</p>
-            <label><input type="radio" name="estructura" value="concreto"> Concreto</label>
-            <label><input type="radio" name="estructura" value="madera"> Madera</label>
-            <label><input type="radio" name="estructura" value="adobe"> Adobe</label>
+            <h3>1. ¿La estructura de su vivienda es...?</h3>
+            <label><input type="radio" name="estructura" value="3"> Concreto</label>
+            <label><input type="radio" name="estructura" value="2"> Madera</label>
+            <label><input type="radio" name="estructura" value="1"> Adobe</label>
         </section>
 
         <section>
-            <h3>Seguridad</h3>
-            <p>¿Cuenta con sistema de alarma?</p>
-            <label><input type="radio" name="alarma" value="si"> Sí</label>
-            <label><input type="radio" name="alarma" value="no"> No</label>
+            <h3>2. ¿Cuenta con sistema de alarma?</h3>
+            <label><input type="radio" name="alarma" value="2"> Sí</label>
+            <label><input type="radio" name="alarma" value="0"> No</label>
+        </section>
+
+        <section>
+            <h3>3. ¿Tiene salidas de emergencia señalizadas?</h3>
+            <label><input type="radio" name="salidas" value="2"> Sí</label>
+            <label><input type="radio" name="salidas" value="1"> No aplica</label>
+            <label><input type="radio" name="salidas" value="0"> No</label>
+        </section>
+
+        <section>
+            <h3>4. ¿Posee extintores en buen estado?</h3>
+            <label><input type="radio" name="extintores" value="2"> Sí</label>
+            <label><input type="radio" name="extintores" value="0"> No</label>
+        </section>
+
+        <section>
+            <h3>5. ¿El cableado eléctrico está certificado?</h3>
+            <label><input type="radio" name="cableado" value="2"> Sí</label>
+            <label><input type="radio" name="cableado" value="0"> No</label>
+        </section>
+
+        <section>
+            <h3>6. ¿Cuenta con botiquín de primeros auxilios?</h3>
+            <label><input type="radio" name="botiquin" value="2"> Sí</label>
+            <label><input type="radio" name="botiquin" value="0"> No</label>
+        </section>
+
+        <section>
+            <h3>7. ¿Tiene detectores de humo?</h3>
+            <label><input type="radio" name="humo" value="2"> Sí</label>
+            <label><input type="radio" name="humo" value="0"> No</label>
+        </section>
+
+        <section>
+            <h3>8. ¿La vivienda está en zona segura (no inundable)?</h3>
+            <label><input type="radio" name="zona" value="2"> Sí</label>
+            <label><input type="radio" name="zona" value="0"> No</label>
+        </section>
+
+        <section>
+            <h3>9. ¿Las puertas y ventanas tienen cerraduras seguras?</h3>
+            <label><input type="radio" name="cerraduras" value="2"> Sí</label>
+            <label><input type="radio" name="cerraduras" value="0"> No</label>
+        </section>
+
+        <section>
+            <h3>10. ¿Existen planes familiares de evacuación?</h3>
+            <label><input type="radio" name="plan" value="2"> Sí</label>
+            <label><input type="radio" name="plan" value="0"> No</label>
         </section>
 
         <section>
@@ -50,6 +97,6 @@
         <button type="submit">Enviar Encuesta</button>
         </form>
     </main>
-
+    <script src="encuesta.js"></script>
 </body>
 </html>
