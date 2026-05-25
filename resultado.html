@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados | Casa Segura</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="comienzo">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <nav class="menu">
+            <a href="index.html">Inicio</a>
+            <a href="desastres.html">Desastres</a>
+            <a href="encuesta.html">Encuesta</a>
+            <a href="conocenos.html">Conócenos</a>
+        </nav>
+    </header>
+
+    <main class="contenido">
+        <h2>Resultados de la Encuesta</h2>
+        <p id="resultado"></p>
+        <div id="recomendaciones" class="recomendaciones"></div>
+    </main>
+
+    <script>
+        const puntaje = localStorage.getItem("puntajeTotal");
+        let interpretacion = "";
+        let recomendaciones = "";
+
+        if (puntaje <= 8) {
+        interpretacion = "Riesgo Alto: medidas urgentes necesarias.";
+        recomendaciones = `
+            <h3>Recomendaciones:</h3>
+            <ul>
+            <li>Reforzar la estructura de la vivienda.</li>
+            <li>Instalar sistemas de alarma y detectores de humo.</li>
+            <li>Adquirir extintores y botiquín de primeros auxilios.</li>
+            <li>Elaborar un plan familiar de evacuación.</li>
+            </ul>
+            <p><strong>Sugerencia:</strong> Contactar a un especialista en gestión de riesgos lo antes posible.</p>
+        `;
+        } else if (puntaje <= 14) {
+        interpretacion = "Riesgo Medio: implementar mejoras progresivas.";
+        recomendaciones = `
+            <h3>Recomendaciones:</h3>
+            <ul>
+            <li>Revisar cableado eléctrico y cerraduras.</li>
+            <li>Agregar salidas de emergencia señalizadas.</li>
+            <li>Actualizar el botiquín y verificar extintores.</li>
+            </ul>
+            <p><strong>Sugerencia:</strong> Planificar mejoras en un plazo de 6 meses.</p>
+        `;
+        } else if (puntaje <= 18) {
+        interpretacion = "Riesgo Bajo: condiciones aceptables con revisiones periódicas.";
+        recomendaciones = `
+            <h3>Recomendaciones:</h3>
+            <ul>
+            <li>Realizar mantenimientos preventivos cada año.</li>
+            <li>Capacitar a la familia en protocolos de emergencia.</li>
+            <li>Verificar periódicamente detectores de humo y alarmas.</li>
+            </ul>
+            <p><strong>Sugerencia:</strong> Mantener un calendario de revisiones.</p>
+        `;
+        } else {
+        interpretacion = "Vivienda Segura: cumple con la mayoría de criterios.";
+        recomendaciones = `
+            <h3>Recomendaciones:</h3>
+            <ul>
+            <li>Continuar con mantenimientos preventivos.</li>
+            <li>Actualizar el plan de evacuación cada año.</li>
+            <li>Revisar periódicamente instalaciones eléctricas y de gas.</li>
+            </ul>
+            <p><strong>Sugerencia:</strong> Compartir buenas prácticas con vecinos para fortalecer la seguridad comunitaria.</p>
+        `;
+        }
+
+        document.getElementById("resultado").textContent =
+        "Puntaje total: " + puntaje + " puntos — " + interpretacion;
+
+        document.getElementById("recomendaciones").innerHTML = recomendaciones;
+    </script>
+</body>
+</html>
+
