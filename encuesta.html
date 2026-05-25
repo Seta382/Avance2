@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Encuesta | Casa Segura</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="comienzo">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <nav class="menu">
+            <a href="index.html">Inicio</a>
+            <a href="desastres.html">Desastres</a>
+            <a href="encuesta.html">Encuesta</a>
+            <a href="conocenos.html">Conócenos</a>
+        </nav>
+    </header>
+    
+    <main class="contenido">
+        <h2>Encuesta de Evaluación de Vivienda</h2>
+        <form class="form-encuesta">
+        <section>
+            <h3>Información Básica</h3>
+            <label>Nombre: <input type="text" name="nombre"></label><br>
+            <label>Dirección: <input type="text" name="direccion"></label><br>
+        </section>
+
+        <section>
+            <h3>Condiciones de la Vivienda</h3>
+            <p>¿La estructura de su vivienda es...?</p>
+            <label><input type="radio" name="estructura" value="concreto"> Concreto</label>
+            <label><input type="radio" name="estructura" value="madera"> Madera</label>
+            <label><input type="radio" name="estructura" value="adobe"> Adobe</label>
+        </section>
+
+        <section>
+            <h3>Seguridad</h3>
+            <p>¿Cuenta con sistema de alarma?</p>
+            <label><input type="radio" name="alarma" value="si"> Sí</label>
+            <label><input type="radio" name="alarma" value="no"> No</label>
+        </section>
+
+        <section>
+            <h3>Comentarios</h3>
+            <textarea name="comentarios" rows="4" placeholder="Observaciones adicionales..."></textarea>
+        </section>
+
+        <button type="submit">Enviar Encuesta</button>
+        </form>
+    </main>
+
+</body>
+</html>
