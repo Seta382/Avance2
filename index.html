@@ -1,167 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    <title>Casa Segura</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INICIO | Casa Segura</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 
 <body>
-
-    <!-- HEADER -->
     <header class="comienzo">
-
         <div class="logo">
             <img src="logo.png" alt="Logo">
         </div>
-
         <nav class="menu">
             <a href="index.html">Inicio</a>
             <a href="desastres.html">Desastres</a>
             <a href="encuesta.html">Encuesta</a>
             <a href="conocenos.html">Conócenos</a>
         </nav>
-
     </header>
-
-    <!-- HERO -->
-    <section class="hero-desastres">
-
-        <div class="overlay">
-
-            <h1>Desastres Naturales en el Perú</h1>
-
+    <section class="hero">
+        <div class="texto">
+            <h1>
+                Infórmate.<br>
+                Prepárate.<br>
+                <span>Protege tu hogar.</span>
+            </h1>
             <p>
-                Conoce los fenómenos naturales más peligrosos del país
-                y aprende cómo proteger tu hogar y a tu familia.
+                Conoce los desastres naturales más comunes en el Perú,
+                responde encuestas y descubre qué tan vulnerable es tu hogar.
             </p>
-
+            <div class="botones">
+                <a href="encuesta.html" class="btn verde">Haz la encuesta</a>
+                <a href="desastres.html" class="btn transparente">Conoce los desastres</a>
+            </div>
         </div>
-
     </section>
-
-    <!-- CONTENIDO -->
-    <section class="vulnerabilidades">
-
-        <h2>Fenómenos más comunes</h2>
-
-        <div class="galeria">
-
-            <!-- INUNDACIONES -->
-            <div class="card-desastre">
-
-                <img src="inundaciones 1.jpg" alt="Inundaciones">
-
-                <div class="contenido">
-
-                    <h3>🌧️ Inundaciones</h3>
-
-                    <p>
-                        Ocurren cuando el agua cubre zonas normalmente secas.
-                        Son frecuentes durante lluvias intensas y pueden destruir
-                        viviendas, carreteras y cultivos.
-                    </p>
-
-                    <div class="dato">
-                        ⚠️ Las regiones costeras del Perú son las más afectadas.
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- SISMOS -->
-            <div class="card-desastre">
-
-                <img src="sismos.jpg" alt="Sismos">
-
-                <div class="contenido">
-
-                    <h3>🏚️ Sismos</h3>
-
-                    <p>
-                        El Perú está ubicado en el Cinturón de Fuego del Pacífico,
-                        por eso los terremotos son muy frecuentes.
-                    </p>
-
-                    <div class="dato">
-                        📍 Perú registra cientos de movimientos sísmicos al año.
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- TSUNAMIS -->
-            <div class="card-desastre">
-
-                <img src="tsunamis1.jpg" alt="Tsunamis">
-
-                <div class="contenido">
-
-                    <h3>🌊 Tsunamis</h3>
-
-                    <p>
-                        Son olas gigantes generadas principalmente por terremotos
-                        submarinos que pueden impactar las costas.
-                    </p>
-
-                    <div class="dato">
-                        🚨 Las zonas cercanas al mar deben tener rutas de evacuación.
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- HUAYCOS -->
-            <div class="card-desastre">
-
-                <img src="huayco1.jpg" alt="Huaycos">
-
-                <div class="contenido">
-
-                    <h3>⛰️ Huaycos</h3>
-
-                    <p>
-                        Deslizamientos de lodo y piedras causados por lluvias intensas
-                        en zonas montañosas.
-                    </p>
-
-                    <div class="dato">
-                        🌧️ Son comunes durante el Fenómeno del Niño.
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- SEQUIAS -->
-            <div class="card-desastre">
-
-                <img src="sequias1.jpg" alt="Sequías">
-
-                <div class="contenido">
-
-                    <h3>☀️ Sequías</h3>
-
-                    <p>
-                        La falta prolongada de lluvias puede generar escasez de agua
-                        y afectar la agricultura.
-                    </p>
-
-                    <div class="dato">
-                        💧 El ahorro de agua es fundamental en épocas secas.
-                    </div>
-
-                </div>
-
-            </div>
-
+    <section class="conoce-desastres">
+        <h1>Desastres naturales más comunes en el Perú</h1>
+        <p>Conócelos para estar mejor preparado</p>
+    <div class="cards">
+        <div class="card">
+            <h2>🏚️ Sismos</h2>
+            <p>Movimientos de la tierra que pueden causar daños estructurales.</p>
+            <a href="desastres.html">Más información →</a>
         </div>
-
+        <div class="card">
+            <h2>⛰️ Huaycos</h2>
+            <p>Deslizamientos de tierra causados por lluvias intensas.</p>
+            <a href="desastres.html">Más información →</a>
+        </div>
+        <div class="card">
+            <h2>🌧️ Inundaciones</h2>
+            <p>Desbordes de ríos o acumulación de agua por lluvias.</p>
+            <a href="desastres.html">Más información →</a>
+        </div>
+        <div class="card">
+            <h2>🌊 Tsunamis</h2>
+            <p>Olas gigantes generadas por movimientos sísmicos.</p>
+            <a href="desastres.html">Más información →</a>
+        </div>
+        <div class="card">
+            <h2>☀️ Sequías</h2>
+            <p>Falta prolongada de lluvias que afecta cultivos y personas.</p>
+            <a href="desastres.html">Más información →</a>
+        </div>
+    </div>
     </section>
-
+    <!-- BOTON CHAT -->
+    <div class="chat-boton" id="abrir-chat">
+        💬
+    </div>
+    <!-- CHAT -->
+    <div class="chat-container" id="chat">
+        <div class="chat-header">
+            Casa Segura Bot
+        </div>
+        <div class="chat-mensajes" id="mensajes">
+            <div class="bot">
+                Hola 👋 ¿En qué puedo ayudarte?
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input 
+            type="text" 
+            id="input-chat"
+            placeholder="Escribe un mensaje..."
+            >
+            <button id="enviar">
+                Enviar
+            </button>
+        </div>
+    </div>
+    <script src="chatbot.js"></script>
 </body>
 </html>
