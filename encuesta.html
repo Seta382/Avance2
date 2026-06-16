@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <title>Encuesta | Casa Segura</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="encuesta.css">
 </head>
 <body>
+
+    <!-- ===== ENCABEZADO ===== -->
     <header class="comienzo">
         <div class="logo">
             <img src="logo.png" alt="Logo">
@@ -17,73 +20,161 @@
             <a href="conocenos.html">Conócenos</a>
         </nav>
     </header>
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
     <main class="pagina-encuesta">
+
         <h2>Encuesta de Evaluación de Vivienda</h2>
-        <form id="form-encuesta" class="form-encuesta">
-        <section>
-            <h3>Información Básica</h3>
-            <label>Nombre: <input type="text" name="nombre"></label><br>
-            <label>Dirección: <input type="text" name="direccion"></label><br>
-        </section>
-        <section>
-            <h3>1. ¿La estructura de su vivienda es...?</h3>
-            <label><input type="radio" name="estructura" value="3"> Concreto</label>
-            <label><input type="radio" name="estructura" value="2"> Madera</label>
-            <label><input type="radio" name="estructura" value="1"> Adobe</label>
-        </section>
-        <section>
-            <h3>2. ¿Cuenta con sistema de alarma?</h3>
-            <label><input type="radio" name="alarma" value="2"> Sí</label>
-            <label><input type="radio" name="alarma" value="0"> No</label>
-        </section>
-        <section>
-            <h3>3. ¿Tiene salidas de emergencia señalizadas?</h3>
-            <label><input type="radio" name="salidas" value="2"> Sí</label>
-            <label><input type="radio" name="salidas" value="1"> No aplica</label>
-            <label><input type="radio" name="salidas" value="0"> No</label>
-        </section>
-        <section>
-            <h3>4. ¿Posee extintores en buen estado?</h3>
-            <label><input type="radio" name="extintores" value="2"> Sí</label>
-            <label><input type="radio" name="extintores" value="0"> No</label>
-        </section>
-        <section>
-            <h3>5. ¿El cableado eléctrico está certificado?</h3>
-            <label><input type="radio" name="cableado" value="2"> Sí</label>
-            <label><input type="radio" name="cableado" value="0"> No</label>
-        </section>
-        <section>
-            <h3>6. ¿Cuenta con botiquín de primeros auxilios?</h3>
-            <label><input type="radio" name="botiquin" value="2"> Sí</label>
-            <label><input type="radio" name="botiquin" value="0"> No</label>
-        </section>
-        <section>
-            <h3>7. ¿Tiene detectores de humo?</h3>
-            <label><input type="radio" name="humo" value="2"> Sí</label>
-            <label><input type="radio" name="humo" value="0"> No</label>
-        </section>
-        <section>
-            <h3>8. ¿La vivienda está en zona segura (no inundable)?</h3>
-            <label><input type="radio" name="zona" value="2"> Sí</label>
-            <label><input type="radio" name="zona" value="0"> No</label>
-        </section>
-        <section>
-            <h3>9. ¿Las puertas y ventanas tienen cerraduras seguras?</h3>
-            <label><input type="radio" name="cerraduras" value="2"> Sí</label>
-            <label><input type="radio" name="cerraduras" value="0"> No</label>
-        </section>
-        <section>
-            <h3>10. ¿Existen planes familiares de evacuación?</h3>
-            <label><input type="radio" name="plan" value="2"> Sí</label>
-            <label><input type="radio" name="plan" value="0"> No</label>
-        </section>
-        <section>
-            <h3>Comentarios</h3>
-            <textarea name="comentarios" rows="4" placeholder="Observaciones adicionales..."></textarea>
-        </section>
-        <button type="submit">Enviar Encuesta</button>
-        </form>
+
+        <!-- Barra de progreso -->
+        <div class="barra-progreso-wrap">
+            <div class="barra-progreso-texto" id="texto-progreso">Página 1 de 3</div>
+            <div class="barra-progreso-fondo">
+                <div class="barra-progreso-fill" id="fill-progreso" style="width: 33.33%"></div>
+            </div>
+        </div>
+
+        <!-- ================================================================
+             PÁGINA 1 — Información básica y estructura
+             Para editar las preguntas busca el bloque marcado con:
+             <!-- [PÁGINA 1 — PREGUNTAS] -->
+        <!-- ================================================================ -->
+        <div class="pagina-preguntas activa" id="pagina-1">
+            <div class="tarjeta-preguntas">
+                <h3>Página 1 — Datos generales y estructura</h3>
+
+                <!-- [PÁGINA 1 — PREGUNTAS] — Edita las preguntas aquí -->
+
+                <div class="pregunta">
+                    <p>Nombre del encuestado</p>
+                    <input type="text" id="nombre" placeholder="Tu nombre completo">
+                </div>
+
+                <div class="pregunta">
+                    <p>Dirección de la vivienda</p>
+                    <input type="text" id="direccion" placeholder="Calle, número, distrito">
+                </div>
+
+                <div class="pregunta" data-nombre="estructura">
+                    <p>1. ¿La estructura de su vivienda es...?</p>
+                    <label><input type="radio" name="estructura" value="3"> Concreto</label>
+                    <label><input type="radio" name="estructura" value="2"> Madera</label>
+                    <label><input type="radio" name="estructura" value="1"> Adobe</label>
+                </div>
+
+                <div class="pregunta" data-nombre="zona">
+                    <p>2. ¿La vivienda está en zona segura (no inundable, no deslizable)?</p>
+                    <label><input type="radio" name="zona" value="2"> Sí</label>
+                    <label><input type="radio" name="zona" value="0"> No</label>
+                </div>
+
+                <div class="pregunta" data-nombre="cableado">
+                    <p>3. ¿El cableado eléctrico está certificado y en buen estado?</p>
+                    <label><input type="radio" name="cableado" value="2"> Sí</label>
+                    <label><input type="radio" name="cableado" value="0"> No</label>
+                </div>
+
+                <!-- [FIN PÁGINA 1 — PREGUNTAS] -->
+            </div>
+        </div>
+
+        <!-- ================================================================
+             PÁGINA 2 — Seguridad y equipamiento
+             Para editar las preguntas busca el bloque marcado con:
+             <!-- [PÁGINA 2 — PREGUNTAS] -->
+        <!-- ================================================================ -->
+        <div class="pagina-preguntas" id="pagina-2">
+            <div class="tarjeta-preguntas">
+                <h3>Página 2 — Seguridad y equipamiento</h3>
+
+                <!-- [PÁGINA 2 — PREGUNTAS] — Edita las preguntas aquí -->
+
+                <div class="pregunta" data-nombre="alarma">
+                    <p>4. ¿Cuenta con sistema de alarma o seguridad?</p>
+                    <label><input type="radio" name="alarma" value="2"> Sí</label>
+                    <label><input type="radio" name="alarma" value="0"> No</label>
+                </div>
+
+                <div class="pregunta" data-nombre="extintores">
+                    <p>5. ¿Posee extintores en buen estado?</p>
+                    <label><input type="radio" name="extintores" value="2"> Sí</label>
+                    <label><input type="radio" name="extintores" value="0"> No</label>
+                </div>
+
+                <div class="pregunta" data-nombre="humo">
+                    <p>6. ¿Tiene detectores de humo instalados?</p>
+                    <label><input type="radio" name="humo" value="2"> Sí</label>
+                    <label><input type="radio" name="humo" value="0"> No</label>
+                </div>
+
+                <div class="pregunta" data-nombre="botiquin">
+                    <p>7. ¿Cuenta con botiquín de primeros auxilios?</p>
+                    <label><input type="radio" name="botiquin" value="2"> Sí</label>
+                    <label><input type="radio" name="botiquin" value="0"> No</label>
+                </div>
+
+                <!-- [FIN PÁGINA 2 — PREGUNTAS] -->
+            </div>
+        </div>
+
+        <!-- ================================================================
+             PÁGINA 3 — Evacuación y plan familiar
+             Para editar las preguntas busca el bloque marcado con:
+             <!-- [PÁGINA 3 — PREGUNTAS] -->
+        <!-- ================================================================ -->
+        <div class="pagina-preguntas" id="pagina-3">
+            <div class="tarjeta-preguntas">
+                <h3>Página 3 — Evacuación y plan familiar</h3>
+
+                <!-- [PÁGINA 3 — PREGUNTAS] — Edita las preguntas aquí -->
+
+                <div class="pregunta" data-nombre="salidas">
+                    <p>8. ¿Tiene salidas de emergencia señalizadas?</p>
+                    <label><input type="radio" name="salidas" value="2"> Sí</label>
+                    <label><input type="radio" name="salidas" value="1"> No aplica</label>
+                    <label><input type="radio" name="salidas" value="0"> No</label>
+                </div>
+
+                <div class="pregunta" data-nombre="cerraduras">
+                    <p>9. ¿Las puertas y ventanas tienen cerraduras seguras?</p>
+                    <label><input type="radio" name="cerraduras" value="2"> Sí</label>
+                    <label><input type="radio" name="cerraduras" value="0"> No</label>
+                </div>
+
+                <div class="pregunta" data-nombre="plan">
+                    <p>10. ¿Existen planes familiares de evacuación ante desastres?</p>
+                    <label><input type="radio" name="plan" value="2"> Sí</label>
+                    <label><input type="radio" name="plan" value="0"> No</label>
+                </div>
+
+                <div class="pregunta">
+                    <p>Comentarios u observaciones adicionales</p>
+                    <textarea id="comentarios" rows="4" placeholder="Escribe aquí cualquier detalle relevante sobre tu vivienda..."></textarea>
+                </div>
+
+                <!-- [FIN PÁGINA 3 — PREGUNTAS] -->
+            </div>
+        </div>
+
+        <!-- Alerta de validación -->
+        <div class="alerta-validacion" id="alerta">
+            ⚠️ Por favor responde todas las preguntas antes de continuar.
+        </div>
+
+        <!-- Botones de navegación -->
+        <div class="nav-botones">
+            <button class="btn-nav btn-anterior" id="btn-anterior" onclick="cambiarPagina(-1)" disabled>
+                ← Anterior
+            </button>
+            <button class="btn-nav btn-siguiente" id="btn-siguiente" onclick="cambiarPagina(1)">
+                Siguiente →
+            </button>
+        </div>
+
     </main>
+
     <script src="encuesta.js"></script>
+</body>
+</html>
 </body>
 </html>
