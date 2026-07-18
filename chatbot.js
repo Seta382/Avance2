@@ -71,30 +71,107 @@ function enviarMensaje() {
     mensajes.scrollTop = mensajes.scrollHeight;
 }
 
+/* ==========================================================
+   BASE DE CONOCIMIENTO
+   ========================================================== */
+
+const TEMAS = [
+    {
+        claves: ["sismo", "terremoto", "temblor"],
+        respuesta: "Durante un sismo: manten la calma, alejate de ventanas y objetos que puedan caer, ubicate bajo un mueble resistente y no uses el ascensor."
+    },
+    {
+        claves: ["incendio", "fuego", "quemadura"],
+        respuesta: "Ante un incendio: evacua de inmediato, no uses el ascensor, agachate si hay humo y usa un extintor solo si el fuego es pequeno y controlable."
+    },
+    {
+        claves: ["inundacion", "inundaciones", "desborde"],
+        respuesta: "En caso de inundacion: desconecta la electricidad, evita caminar o conducir por zonas anegadas y dirigete a un lugar alto."
+    },
+    {
+        claves: ["tsunami", "maremoto"],
+        respuesta: "Si sientes un sismo fuerte cerca de la costa, alejate del mar y dirigete a zonas altas de inmediato; no esperes una alerta oficial."
+    },
+    {
+        claves: ["robo", "roban", "robaron", "asalto", "ladron", "ladrones", "hurto"],
+        respuesta: "Para prevenir robos: instala cerraduras seguras, alarmas y buena iluminacion exterior, y evita mostrar objetos de valor cerca de ventanas."
+    },
+    {
+        claves: ["fuga de gas", "olor a gas", "gas"],
+        respuesta: "Si detectas olor a gas: no enciendas luces ni fosforos, cierra la llave de paso, ventila el ambiente y sal de la vivienda antes de llamar a emergencias."
+    },
+    {
+        claves: ["primeros auxilios", "herida", "botiquin"],
+        respuesta: "Todo hogar debe tener un botiquin con gasas, alcohol, vendas y medicamentos basicos. Ante una emergencia medica grave, llama de inmediato a los servicios de emergencia."
+    },
+    {
+        claves: ["numero de emergencia", "bomberos", "policia", "ambulancia"],
+        respuesta: "Numeros de emergencia en Peru: 105 Policia, 116 Bomberos, 106 SAMU (ambulancia)."
+    },
+    {
+        claves: ["cableado", "cortocircuito", "electric"],
+        respuesta: "Revisa periodicamente el cableado electrico y evita sobrecargar los tomacorrientes: un cableado en mal estado es una de las principales causas de incendios."
+    },
+    {
+        claves: ["plan de evacuacion", "ruta de evacuacion", "evacuacion"],
+        respuesta: "Disena un plan familiar de evacuacion: define rutas de salida, un punto de encuentro y practica el simulacro al menos una vez al ano."
+    },
+    {
+        claves: ["encuesta"],
+        respuesta: "Puedes evaluar la seguridad de tu vivienda en nuestra encuesta: ve a la seccion Encuesta del menu."
+    },
+];
+
+const SALUDOS = ["hola", "buenas", "buenos dias", "buenas tardes", "buenas noches"];
+const DESPEDIDAS = ["adios", "chao", "hasta luego", "nos vemos"];
+const AGRADECIMIENTOS = ["gracias"];
+const PALABRAS_AYUDA = ["ayuda", "menu", "opciones", "que sabes hacer"];
+
+/* Quita tildes para que se reconozca igual */
+function normalizar(texto) {
+
+    return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[̀-ͯ]/g, "");
+}
+
+function incluyeAlguna(texto, lista) {
+
+    return lista.some(palabra => texto.includes(normalizar(palabra)));
+}
+
 /* RESPUESTAS */
 
 function responder(texto) {
 
-    texto = texto.toLowerCase();
+    const t = normalizar(texto);
 
-    if(texto.includes("sismo")) {
+    if(incluyeAlguna(t, PALABRAS_AYUDA)) {
 
-        return "Durante un sismo debes mantener la calma y ubicar zonas seguras.";
+        const temas = TEMAS.map(tema => tema.claves[0]).join(", ");
 
-    } else if(texto.includes("incendio")) {
-
-        return "En un incendio debes evacuar y usar extintores si es seguro.";
-
-    } else if(texto.includes("inundacion")) {
-
-        return "Evita zonas inundadas y desconecta la electricidad.";
-
-    } else if(texto.includes("hola")) {
-
-        return "Hola 👋 ¿Cómo puedo ayudarte?";
-
-    } else {
-
-        return "No entiendo tu pregunta todavía.";
+        return "Puedo ayudarte con: " + temas + ". Escribe cualquiera de estas palabras para saber mas.";
     }
+
+    if(incluyeAlguna(t, DESPEDIDAS)) {
+
+        return "Hasta luego! Cuida tu hogar.";
+    }
+
+    if(incluyeAlguna(t, AGRADECIMIENTOS)) {
+
+        return "De nada! Estoy para ayudarte.";
+    }
+
+    if(incluyeAlguna(t, SALUDOS)) {
+
+        return "Hola! En que puedo ayudarte? Escribe 'ayuda' para ver los temas disponibles.";
+    }
+
+    const tema = TEMAS.find(tema => incluyeAlguna(t, tema.claves));
+
+    if(tema) return tema.respuesta;
+
+    return "No entiendo tu pregunta todavia. Escribe 'ayuda' para ver los temas que conozco.";
 }
